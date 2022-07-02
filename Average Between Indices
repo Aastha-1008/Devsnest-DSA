@@ -1,9 +1,0 @@
-float solve(int n, vector<int> arr, int x, int y){
-//CODE HERE 
-    int add = 0 ;
-    for(int  i = x ; i<=y ;i++){
-        add += arr[i];
-    }
-    float  ans = (float)add/(float)(y-x+1);
-    return ans;
-}
