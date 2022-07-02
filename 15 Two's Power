@@ -1,0 +1,5 @@
+int solve(int n){
+//CODE HERE 
+    if((n&(n-1)) == 0)return true;
+    else return false;
+}
