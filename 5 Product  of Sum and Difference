@@ -1,0 +1,4 @@
+int solve(int a, int b){
+//CODE HERE 
+     return ( (a+b)*(a-b) );
+}
