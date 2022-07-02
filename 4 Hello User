@@ -1,0 +1,4 @@
+string solve(string str){
+//CODE HERE
+return   ("Hello, "+str+"!");
+}
