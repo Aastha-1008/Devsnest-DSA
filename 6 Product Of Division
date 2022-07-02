@@ -1,0 +1,6 @@
+float solve(int a, int b){
+//CODE HE
+    int a1 =  a/b;
+    float ans=((float)a/(float)b)*a1;
+    return ans;
+}
