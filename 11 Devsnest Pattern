@@ -1,0 +1,46 @@
+vector<string> solve(int M, int N){
+//CODE HERE 
+vector<string>ans;
+    int val = N-3;
+    val = val/2;
+    int k = 0;
+    string s = "";
+    for(int i = 0 ; i<(M/2) ; i++){
+        for(int j = 0 ; j<val ;j=j+3)s+="---";
+        
+        s+=".|";
+
+        for(int j=0 ; j<k ;j++)s+="..|";
+        k = k+2;
+
+        s+=".";
+
+        for(int j = 0;j<val ;j=j+3)s+="---";
+
+        val-=3;
+        ans.push_back(s);
+        s = "";
+    }
+    int z = (N-9)/2;
+    for(int i = 0 ; i<z ; i++)s += "-";
+    s += "DEVSNEST!";
+    for(int i = 0 ; i<z ; i++)s += "-";
+
+    ans.push_back(s);
+    s = "";
+    int a = 1;
+    k = k-3;
+    for(int i = (M/2) ; i>0 ; i--){
+        
+        for(int j = 0 ; j<a ; j++) s+="---";
+        s += ".|";
+        for(int j = k ; j>=0 ; j-- )s += "..|";
+        s += ".";
+        for(int j = 0 ; j<a ; j++) s+="---";
+        a++;
+        k=k-2;
+        ans.push_back(s);
+        s = "";
+    }
+    return ans;
+}
