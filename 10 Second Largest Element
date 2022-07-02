@@ -1,0 +1,14 @@
+int solve(int n, vector<int> arr){
+//CODE HERE 
+    int fmax = arr[0] , smax = INT_MIN;
+    for(int i = 1 ; i<n ; i++){
+        if(arr[i]>fmax){
+            smax = fmax;
+            fmax = arr[i];
+        }
+        if(arr[i]>smax && arr[i]!=fmax){
+            smax = arr[i];
+        }
+    }
+    return smax;
+}
