@@ -1,0 +1,21 @@
+vector<int> solve(vector<vector<int>> mat){
+//CODE HERE 
+    vector<int>ans;
+    int fmin = mat[1][1], smin = INT_MAX;
+    for(int i = 1 ; i<mat.size();i++){
+        if(mat[i][1]<fmin){
+            smin = fmin;
+            fmin = mat[i][1];
+        }
+        if(mat[i][1]<smin && mat[i][1]!=fmin){
+            smin = mat[i][1];
+        }
+    }
+    for(int i = 0; i<mat.size();i++){
+        if(mat[i][1]==smin){
+            ans.push_back(mat[i][0]);
+        }
+    }
+    sort(ans.begin(),ans.end());
+    return ans;
+}
