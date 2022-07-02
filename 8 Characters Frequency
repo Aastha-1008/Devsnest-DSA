@@ -1,0 +1,16 @@
+vector<int> solve(string str1){
+//CODE HERE 
+    map<char,int>m;
+    for(int i = 0 ; i<str1.length(); i++){
+        m[str1[i]]++;
+    }
+    int arr[26]={0};
+    vector<int>v;
+    for(int i = 0 ; i<str1.length() ; i++){
+        if(arr[str1[i] -'a']==0){
+            v.push_back(m[str1[i]]);
+            arr[str1[i]-'a']=1;
+        }
+    }
+    return v;
+}
