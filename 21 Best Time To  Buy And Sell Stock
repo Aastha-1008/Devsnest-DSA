@@ -1,0 +1,9 @@
+int solve(int n, vector<int> prices){
+//CODE HERE 
+    int minval = prices[0],maxprofit=0;
+    for(int ind=1;ind<prices.size();ind++){
+        minval=min(minval,prices[ind]);
+        maxprofit=max(maxprofit,prices[ind]-minval);
+    }  
+    return   maxprofit;
+}
