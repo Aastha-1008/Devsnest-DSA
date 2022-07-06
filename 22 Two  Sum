@@ -1,0 +1,21 @@
+vector<int> solve(int n, vector<int> nums, int target){
+//CODE HERE 
+    vector<int>ans;
+    int  l=0,r=nums.size()-1,f=0;
+    while(l<nums.size()-1){
+        while(l<r){
+            if(nums[l]+nums[r]==target){
+                f=1;
+                ans.push_back(l);
+                ans.push_back(r);
+                break;
+            }
+            r--;
+        }
+
+        if(f==1)break;
+        l++;
+        r=nums.size()-1;
+    }
+    return ans;
+}
