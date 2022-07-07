@@ -1,0 +1,32 @@
+static void swap(int s , int e , int[] nums){
+    int t = nums[s];
+    nums[s] = nums[e];
+    nums[e] = t;
+}
+static void solve(int s , int e , int[] nums){
+    while(s<e){
+        swap(s,e,nums);
+        s++;
+        e--;
+    }
+}
+
+static int[] solve(int n, int[] nums){
+//CODE HERE 
+    int lin = -1;
+    for(int i = n-1 ; i>0 ; i--){
+        if(nums[i]>nums[i-1]){lin = i-1 ;break;}
+    }
+    if(lin>-1){
+
+        for(int i = n-1;i>lin ;i--){
+            if(nums[lin]<nums[i]){
+                swap(lin,i,nums);
+                break;
+            }
+        }
+    }
+
+    solve(lin+1,n-1,nums);
+    return nums;
+}
