@@ -1,0 +1,25 @@
+static int solve(String s1, String s2){
+//CODE HERE 
+    HashMap<Character,Integer>m = new HashMap<Character,Integer>();
+    int size1 = s1.length();
+    int size2 = s2.length();
+    if(size1!=size2)return 0;
+    for(int i = 0 ; i<size1 ; i++){
+        if(m.containsKey(s1.charAt(i))){
+            int val = m.get(s1.charAt(i));
+            m.put(s1.charAt(i),val+1);
+        }
+        else{
+            m.put(s1.charAt(i),1);
+        }
+    }
+    for(int i = 0 ; i<size2; i++){
+        if(m.containsKey(s2.charAt(i))){
+            int val = m.get(s2.charAt(i));
+            if(val==0)return 0;
+            m.put(s2.charAt(i),val-1);
+        }
+        else return 0;
+    }
+    return 1;
+}
