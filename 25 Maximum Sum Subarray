@@ -1,0 +1,10 @@
+static int solve(int n, int[] arr){
+//CODE HERE 
+    int lar_sum = arr[0];
+    int curr_sum = arr[0];
+    for(int i = 1 ; i<n ; i++){
+        curr_sum = Math.max(arr[i],arr[i]+curr_sum);
+        lar_sum = Math.max(lar_sum,curr_sum);
+    }
+    return lar_sum;
+}
