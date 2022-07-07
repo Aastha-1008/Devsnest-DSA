@@ -1,0 +1,22 @@
+static int[][] solve(int[][] matrix){
+//CODE HERE 
+    int s1 = matrix.length;
+    int s2 = matrix[0].length;
+    int row[]=new int[s1],col[]=new int [s2];
+    for(int i = 0 ; i<s1 ; i++){
+        for(int j = 0 ; j<s2 ; j++){
+            if(matrix[i][j]==0){
+                row[i]=1;
+                col[j]=1;
+            }
+        }
+    }
+    for(int i =  0  ; i<s1 ; i++){
+        for(int j = 0 ; j<s2 ; j++){
+            if(row[i]==1 || col[j]==1){
+                matrix[i][j] = 0;
+            }
+        }
+    }
+    return matrix;
+}
