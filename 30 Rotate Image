@@ -1,0 +1,19 @@
+vector<vector<int>> solve(vector<vector<int>> mat){
+//CODE HERE 
+    int row = mat.size() ;
+    int col = mat[0].size();
+    for(int i = 0 ; i<row ; i++){
+        for(int j = i ; j<col ; j++){
+            swap(mat[i][j],mat[j][i]);
+        }
+    }
+    for(int i = 0 ; i<mat.size() ; i++){
+        int s = 0 , e = col-1;
+        while(s<e){
+            swap(mat[i][s],mat[i][e]);
+            s++;
+            e--;
+        }
+    }
+    return mat;
+}
