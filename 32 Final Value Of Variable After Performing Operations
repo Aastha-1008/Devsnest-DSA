@@ -1,0 +1,13 @@
+int solve(int n, vector<string> arr){
+//CODE HERE 1
+     int inc = 0 , dec = 0 ;
+     for(int i = 0 ; i<arr.size() ; i++){
+        string s = arr[i];
+        if(s[0]=='-' && s[1]=='-' && s[2]=='X')dec++;
+        if(s[0]=='+' && s[1]=='+' && s[2]=='X')inc++;
+        if(s[0]=='X' && s[1]=='-' && s[2]=='-')dec++;
+        if(s[0]=='X' && s[1]=='+' && s[2]=='+')inc++;
+
+     }
+    return inc-dec;
+}
