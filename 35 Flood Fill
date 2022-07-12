@@ -1,0 +1,18 @@
+void action(vector<vector<int>>& image , int change , int color , int sr , int sc , int m , int n){
+    if(sr<0 || sc < 0 || sr>=m || sc >= n|| image[sr][sc]!=change)return;
+    image[sr][sc]=color;
+    action(image,change,color,sr+1,sc , m,n);
+    action(image,change,color,sr,sc+1 , m,n);
+    action(image,change,color,sr-1,sc , m,n);
+    action(image,change,color,sr,sc-1 , m,n);
+}
+
+vector<vector<int>> solve(vector<vector<int>>& image, int sr, int sc, int color){
+//CODE HERE 
+    int change = image[sr][sc];
+    if(color == change )return image;
+  
+    action(image,change,color,sr,sc,image.size(),image[0].size());
+    
+    return image;
+}
