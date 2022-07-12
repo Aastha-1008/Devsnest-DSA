@@ -1,0 +1,8 @@
+vector<int> solve(int n, vector<int> nums){
+//CODE HERE 
+
+    for(int i = 1 ; i<n ;i++){
+        nums[i] =  nums[i]+nums[i-1];
+    }
+    return nums;
+}
