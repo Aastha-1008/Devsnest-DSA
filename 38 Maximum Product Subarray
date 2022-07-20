@@ -1,0 +1,16 @@
+int solve(int n, vector<int> arr){
+//CODE HERE 
+    int ans = arr[0] ; 
+    int maxval = arr[0];
+    int minval = arr[0];
+
+    for(int i = 1 ; i< arr.size() ; i++){
+        if(arr[i]<0){
+            swap(maxval , minval);
+        }
+        maxval = max ( arr[i] , maxval*arr[i]);
+        minval = min ( arr[i] , minval*arr[i]);
+        ans = max ( ans , maxval );
+    }
+    return ans;
+}
