@@ -1,0 +1,50 @@
+Node* reverse(Node* t){
+    Node* tra = t;
+    Node* pre = NULL;
+    Node* next = NULL;
+    while(tra!=NULL){
+        next = tra->next;
+        tra->next = pre;
+        pre = tra;
+        tra = next;
+    }
+    return pre;
+}
+Node* solve(Node* l1, Node* l2){
+//CODE HERE 
+    l1 = reverse(l1);
+    l2 = reverse(l2);
+
+    Node* ans = l1;
+    Node* prev = NULL;
+    int sum = 0 , carry = 0 ;
+    while(l1!=NULL && l2!=NULL){
+        sum = l1->data + l2->data + carry ;
+        carry = sum / 10;
+        l1->data = sum%10;
+        if(l1->next==NULL)prev = l1;
+        l1 = l1->next;
+        l2 = l2->next;
+
+    }
+    if(l2!=NULL){
+        prev->next = l2;
+        l1 = prev->next;
+    }
+    while(carry>0 && l1!=NULL){
+        sum = l1->data + carry;
+        carry = sum/10;
+        l1->data = sum%10;
+        if(l1->next == NULL)prev = l1;
+        l1 = l1->next;
+    }
+    if(carry>0){
+        Node* s ;
+        s->data = carry;
+        s->next = NULL;
+        prev->next = s;
+    }
+
+    ans = reverse(ans);
+    return ans;
+}
