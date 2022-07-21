@@ -1,0 +1,18 @@
+Node* reverse(Node* t){
+    Node* tra = t;
+    Node* pre = NULL;
+    Node* next = NULL;
+    while(tra!=NULL){
+        next = tra->next;
+        tra->next = pre;
+        pre = tra;
+        tra = next;
+    }
+    return pre;
+}
+
+Node* solve(Node* head){
+//CODE HERE 
+    head = reverse(head);
+    return head;
+}
