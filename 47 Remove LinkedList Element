@@ -1,0 +1,16 @@
+Node* solve(Node* head, int key){
+//CODE HERE 
+    if(head == NULL )return head;
+    if(head->data==key && head->next->data!=key)head = head->next;
+    // while(head->data == key && head!=NULL)head = head->next;
+    Node* temp = head;
+    while(temp->next!=NULL ){
+        if(temp->next->data == key){
+            temp->next = temp->next->next;
+        }
+        else{
+            temp = temp->next;
+        }
+    }
+    return head;
+}
