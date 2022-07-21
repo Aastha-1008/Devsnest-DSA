@@ -1,0 +1,15 @@
+vector<int> solve(int n, vector<int> arr){
+//CODE HERE 
+   int product = 1;
+vector<int>ans(n,0);
+ans[0] = arr[0];
+   for(int i = 1 ; i<arr.size();i++){
+       ans[i] =  arr[i]*ans[i-1];
+    }
+   for(int i = n-1 ; i>0 ; i-- ){
+       ans[i] = ans[i-1]*product;
+       product *= arr[i];
+   }
+    ans[0] = product;
+    return ans;
+}
