@@ -1,0 +1,28 @@
+string solve(string s){
+//CODE HERE 
+    string ans;
+    stack<char>stack;
+    int a[26]={0};
+    map<char,int>map;
+
+    for(int i = 0 ; i<s.size() ; i++)map[s[i]]++;
+
+    for(int i = 0 ; i<s.size() ; i++){
+        map[s[i]]--;
+        if(a[s[i]-'a']==1)continue;
+        while(!stack.empty() && stack.top() > s[i] && map[stack.top()]>=1){
+            a[stack.top()-'a'] = 0;
+            stack.pop();
+            
+        }
+        stack.push(s[i]);
+        a[s[i]-'a'] = 1;
+
+    }
+    while(!stack.empty()){
+        ans += stack.top();
+        stack.pop();
+    }
+    reverse(ans.begin(),ans.end());
+    return ans;
+}
