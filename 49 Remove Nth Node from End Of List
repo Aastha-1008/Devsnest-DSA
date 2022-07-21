@@ -1,0 +1,28 @@
+Node* solve(Node* head, int n){
+//CODE HERE 
+    if(head == NULL)return NULL;
+    int len=1;
+    Node* slow = head ; 
+    Node* fast = head ; 
+    while(fast->next!=NULL && fast->next->next!=NULL){
+        len++;
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    if(fast->next==NULL){
+        len = (len-1)*2+1;
+    }
+    else len *= 2;
+
+    len -= n;
+    
+    Node* temp = head;
+    if(len == 0 )return head->next;
+    while(len>1){
+        temp = temp->next;
+        len--;
+    }
+    if(temp->next->next==NULL)temp->next = NULL;
+    else temp->next = temp-> next->next;
+    return head;
+}
