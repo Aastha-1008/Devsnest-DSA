@@ -1,0 +1,22 @@
+Node* solve(Node* l1, Node* l2){
+//CODE HERE 
+    Node* ans;
+    Node* res = ans;
+    ans->data = 0;
+    ans->next = NULL;
+    while(l1 != NULL && l2 != NULL ){
+        if(l1->data <= l2->data ){
+            ans->next = l1;
+            l1 = l1->next;
+        }
+        else { 
+            ans->next = l2;
+            l2 = l2->next;
+            
+        }
+        ans = ans->next;
+    }
+    if(l1!=NULL)ans->next = l1;
+    if(l2!=NULL)ans->next = l2;
+    return res->next;
+}
