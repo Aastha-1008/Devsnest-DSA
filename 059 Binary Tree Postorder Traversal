@@ -1,0 +1,14 @@
+void find(TreeNode* root , vector<int>& ans){
+    if(root == NULL)return;
+    find(root->left , ans);
+    find(root->right , ans);
+    ans.push_back(root->val);
+}
+
+vector<int> solve(TreeNode* root){
+//CODE HERE 
+    vector<int>ans;
+    if(root == NULL)return ans;
+    find(root, ans);
+    return ans;
+}
