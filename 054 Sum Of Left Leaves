@@ -1,0 +1,16 @@
+void find(TreeNode* root , int & sum){
+    if(root == NULL)return;
+    if(root->left !=NULL){
+        TreeNode* t = root->left;
+        if(t->left == NULL && t->right == NULL){sum += t->val;}
+        find(root->left , sum);
+    }
+    if(root->right !=NULL)find(root->right , sum);
+}
+int solve(TreeNode* root){
+//CODE HERE 
+    if(root == NULL)return 0;
+    int sum = 0 ; 
+    find(root,sum);
+    return sum;
+}
