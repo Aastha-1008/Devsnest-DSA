@@ -1,0 +1,15 @@
+void find(TreeNode* root, int target , TreeNode* &ans){
+    if(root == NULL)return;
+    if(root->val == target){
+        ans = root;
+        return;
+    }
+    else if(root->val < target) find(root->right , target , ans);
+    else find(root->left , target , ans);
+}
+TreeNode* solve(TreeNode* root, int target){
+//COD HERE 
+    TreeNode* ans = new TreeNode(-1);
+    find(root , target , ans);
+    return ans;
+}
