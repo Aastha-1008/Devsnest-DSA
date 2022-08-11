@@ -1,0 +1,15 @@
+int find (TreeNode* root,int &ans){
+    if(root== NULL)return 0;
+    int left = find(root->left,ans);
+    int right = find(root->right,ans);
+    ans = max (ans, 1+left+right);
+    return 1+max(left,right);
+}
+int solve(TreeNode* root){
+//CODE HERE 
+    if(root == NULL)return 0;
+    if(root->left == NULL && root->right == NULL)return 0;
+    int ans = INT_MIN;
+    find(root,ans);
+    return ans-1;
+}
